@@ -6,9 +6,9 @@ const todoSertvices = require('../services/todo-services');
 router.post('/', async (req, res, next) => {
   try {
     const id = await todoSertvices.createTodo(req.body);
-    res.json({
-      status: 'success',
-      message: 'activity created',
+    res.status(201).json({
+      status: 'Success',
+      message: 'Success',
       data: await todoSertvices.getTodoById(id),
     });
   } catch (err) {
@@ -18,8 +18,8 @@ router.post('/', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
   res.json({
-    status: 'success',
-    message: 'fetch success',
+    status: 'Success',
+    message: 'Success',
     data: await todoSertvices.getTodos(),
   });
 });
@@ -28,8 +28,8 @@ router.get('/:id', async (req, res, next) => {
   try {
     const data = await todoSertvices.getTodoById(req.params.id);
     res.json({
-      status: 'success',
-      message: 'fetch success',
+      status: 'Success',
+      message: 'Success',
       data: data,
     });
   } catch (err) {
@@ -41,8 +41,8 @@ router.patch('/:id', async (req, res, next) => {
   try {
     const data = await todoSertvices.updateTodo(req.params.id, req.body);
     res.json({
-      status: 'success',
-      message: 'update success',
+      status: 'Success',
+      message: 'Success',
       data: data,
     });
   } catch (err) {
@@ -53,9 +53,9 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     const data = await todoSertvices.deleteTodo(req.params.id);
-    res.status(404).json({
-      status: 'success',
-      message: 'delete success',
+    res.json({
+      status: 'Success',
+      message: 'Success',
       data: {},
     });
   } catch (err) {
