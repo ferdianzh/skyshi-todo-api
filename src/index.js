@@ -3,6 +3,7 @@ const app = express();
 const port = 3030;
 
 const activityRouter = require('./routes/activity-routes');
+const todoRouter = require('./routes/todo-routes');
 
 app.use(express.json());
 app.use(
@@ -16,9 +17,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/activities', activityRouter);
+app.use('/todos', todoRouter);
 
 app.use((err, req, res, next) => {
-  // console.error(err.message, err.stack);
   return res.status(err.statusCode || 500).json({
     status: 'fail',
     message: err.message,
