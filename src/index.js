@@ -13,7 +13,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.json({ message: 'ok' });
+  res.json({ message: 'Welcome' });
 });
 
 app.use('/activities', activityRouter);
