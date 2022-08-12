@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome' });
 });
 
-app.use('/activities', activityRouter);
-app.use('/todos', todoRouter);
+app.use('/activity-groups', activityRouter);
+app.use('/todo-items', todoRouter);
 
 app.use((err, req, res, next) => {
   return res.status(err.statusCode || 500).json({
